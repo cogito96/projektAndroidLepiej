@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Quiz</string>
+
+    <string name="h1">Venus is the hottest planet?</string>
+    <string name="h2">The first football game that was broadcasted on Television was a friendly match between Arsenal and Liverpool in 1937?</string>
+    <string name="h3">France win World Cup 1982?</string>
+    <string name="h4">The original name of windows was Interface Manager?</string>
+    <string name="h5">(49/7)*2 = 32-(9*2)?</string>
+    <string name="h6">A bear has 42 teeth?</string>
+    <string name="h7">French fries are originally from Holand?</string>
+    <string name="h8">The Moons diameter is 4,476km?</string>
+    <string name="h9">Every year the sun loses 360 million tons?</string>
+    <string name="h10">August has the highest percentage of births?</string>
+
+
+
+    <string name="odpowiedzTak">PRAWDA</string>
+    <string name="odpowiedzNIE">FALSZ</string>
+
+</resources>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#547cb9"
+    tools:context="com.example.aa.systemymobilne.MainActivity"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="QUIZ"
+        android:textSize="40sp"
+        android:textColor="#ffffff"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="200dp"
+            android:id="@+id/activity_main_start"
+            android:layout_margin="10dp"
+            android:background="#2f3058"
+            android:layout_height="40dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Start"
+                android:layout_centerInParent="true"
+                android:textColor="#ffffff"
+                android:textSize="20sp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="200dp"
+            android:id="@+id/activity_main_zarzadzajPytaniami"
+            android:layout_margin="10dp"
+            android:background="#2f3058"
+            android:layout_height="40dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Zarzadzaj pytaniami"
+                android:layout_centerInParent="true"
+                android:textColor="#ffffff"
+                android:textSize="20sp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="200dp"
+            android:layout_margin="10dp"
+            android:id="@+id/activity_main_wyjscie"
+            android:background="#2f3058"
+            android:layout_height="40dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wyjdz"
+                android:layout_centerInParent="true"
+                android:textColor="#ffffff"
+                android:textSize="20sp"/>
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

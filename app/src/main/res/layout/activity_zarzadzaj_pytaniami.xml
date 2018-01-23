@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context="com.example.aa.systemymobilne.ZarzadzajPytaniami"
+
+    >
+    <ListView
+        android:layout_width="fill_parent"
+        android:id="@+id/lvTodos"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"></ListView>
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etNewTask"
+        android:hint="pytanie"
+        android:visibility="gone"
+        >
+        <requestFocus></requestFocus>
+    </EditText>
+
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        >
+        <RadioButton
+            android:id="@+id/prawdaRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/odpowiedzTak"
+            android:onClick="przycisnietyRadioGroup" />
+        <RadioButton
+            android:id="@+id/falszRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/odpowiedzNIE"
+            android:onClick="przycisnietyRadioGroup" />
+    </RadioGroup>
+
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etNewKategoria"
+        android:hint="kategoria"
+        android:visibility="gone">
+    </EditText>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/llNewTaskButtons"
+        android:visibility="gone"
+        >
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/btnSave"
+            android:text="ZAPISZ"></Button>
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/btnCancel"
+            android:text="ANULUJ"></Button>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/llControlButtons">
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/btnAddNew"
+            android:text="dodaj"
+            android:layout_width="fill_parent"></Button>
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/btnClearCompleted"
+            android:text="Usun wszystko"
+            android:layout_width="fill_parent"></Button>
+    </LinearLayout>
+</LinearLayout>
