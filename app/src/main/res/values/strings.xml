@@ -17,4 +17,8 @@
     <string name="odpowiedzTak">PRAWDA</string>
     <string name="odpowiedzNIE">FALSZ</string>
 
+    <string name="kategoriaBiologia">BIOLOGIA</string>
+    <string name="kategoriaHistoria">HISTORIA</string>
+    <string name="kategoriaInformatyka">INFORMATYKA</string>
+
 </resources>

@@ -45,6 +45,33 @@
             android:onClick="przycisnietyRadioGroup" />
     </RadioGroup>
 
+    <RadioGroup
+        android:id="@+id/kategoriaRadioGrup"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        >
+        <RadioButton
+            android:id="@+id/biologiaRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/kategoriaBiologia"
+            android:onClick="przycisnietyRadioGroupKategoria" />
+        <RadioButton
+            android:id="@+id/historiaRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/kategoriaHistoria"
+            android:onClick="przycisnietyRadioGroupKategoria" />
+        <RadioButton
+            android:id="@+id/informatykaRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/kategoriaInformatyka"
+            android:onClick="przycisnietyRadioGroupKategoria" />
+    </RadioGroup>
+
 
     <EditText
         android:layout_width="fill_parent"

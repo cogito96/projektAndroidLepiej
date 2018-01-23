@@ -26,6 +26,9 @@ public class ZarzadzajPytaniami extends AppCompatActivity {
     RadioGroup odpowiedzRadioGrup;
     RadioButton odpowiedzRadioButton;
 
+    RadioGroup kategoriaRadioGrup;
+    RadioButton kategoriaRadioButton;
+
     private Button btnAddNew;
     private Button btnClearCompleted;
     private Button btnSave;
@@ -60,6 +63,7 @@ public class ZarzadzajPytaniami extends AppCompatActivity {
         etNewTask = (EditText) findViewById(R.id.etNewTask);
 
         odpowiedzRadioGrup = (RadioGroup) findViewById(R.id.radioGroup);
+        kategoriaRadioGrup = (RadioGroup) findViewById(R.id.kategoriaRadioGrup);
 
         lvTodos = (ListView) findViewById(R.id.lvTodos);
         llControlButtons = (LinearLayout) findViewById(R.id.llControlButtons);
@@ -101,7 +105,6 @@ public class ZarzadzajPytaniami extends AppCompatActivity {
                 String description = todoCursor.getString(PytaniaDbAdapter.PYTANIE_KOLUMNA);
                 String completed = todoCursor.getString(PytaniaDbAdapter.ODPOWIEDZ_KOLUMNA);
                 String kategoria = todoCursor.getString(PytaniaDbAdapter.KATEGORIA_KOLUMNA);
-
 
                 tasks.add(new PytaniaGra(id, description, completed , kategoria));
             } while(todoCursor.moveToNext());
@@ -167,6 +170,7 @@ public class ZarzadzajPytaniami extends AppCompatActivity {
         setVisibilityOf(llNewTaskButtons, true);
         setVisibilityOf(etNewTask, true);
         setVisibilityOf(odpowiedzRadioGrup, true);
+        setVisibilityOf(kategoriaRadioGrup, true);
 
 
     }
@@ -176,6 +180,7 @@ public class ZarzadzajPytaniami extends AppCompatActivity {
         setVisibilityOf(llNewTaskButtons, false);
         setVisibilityOf(etNewTask, false);
         setVisibilityOf(odpowiedzRadioGrup, false);
+        setVisibilityOf(kategoriaRadioGrup, false);
 
     }
 
@@ -188,6 +193,7 @@ public class ZarzadzajPytaniami extends AppCompatActivity {
         InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(etNewTask.getWindowToken(), 0);
         imm.hideSoftInputFromWindow(odpowiedzRadioGrup.getWindowToken(), 0);
+        imm.hideSoftInputFromWindow(kategoriaRadioGrup.getWindowToken(), 0);
 
     }
 
@@ -198,15 +204,17 @@ public class ZarzadzajPytaniami extends AppCompatActivity {
     private void saveNewTask(){
         String taskDescription = etNewTask.getText().toString();
         String taskOdpowiedz = odpowiedzRadioButton.getText().toString();
+        String taskKategoria = kategoriaRadioButton.getText().toString();
 
 
         if(taskDescription.equals("")){
             etNewTask.setError("Your task description couldn't be empty string.");
         } else {
-            todoDbAdapter.insertTodo(taskDescription , taskOdpowiedz , "a");
+            todoDbAdapter.insertTodo(taskDescription , taskOdpowiedz , taskKategoria);
 
             etNewTask.setText("");
             odpowiedzRadioButton.setChecked(false);
+            kategoriaRadioButton.setChecked(false);
 
             hideKeyboard();
             showOnlyControlPanel();
@@ -217,6 +225,7 @@ public class ZarzadzajPytaniami extends AppCompatActivity {
     private void cancelNewTask() {
         etNewTask.setText("");
         odpowiedzRadioButton.setChecked(false);
+        kategoriaRadioButton.setChecked(false);
         showOnlyControlPanel();
     }
 
@@ -242,6 +251,12 @@ public class ZarzadzajPytaniami extends AppCompatActivity {
         Toast.makeText(getBaseContext(), odpowiedzRadioButton.getText().toString() , Toast.LENGTH_SHORT).show();
     }
 
+    public void przycisnietyRadioGroupKategoria(View v)
+    {
+        int radioButtonID = kategoriaRadioGrup.getCheckedRadioButtonId();
+        kategoriaRadioButton = (RadioButton) findViewById(radioButtonID);
+        Toast.makeText(getBaseContext(), kategoriaRadioButton.getText().toString() , Toast.LENGTH_SHORT).show();
+    }
     //    private void clearCompletedTasks(){
 //        if(todoCursor != null && todoCursor.moveToFirst()) {
 //            do {
