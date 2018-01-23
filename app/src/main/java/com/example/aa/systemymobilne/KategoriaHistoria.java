@@ -34,10 +34,8 @@ PytaniaDbAdapter pytaniaDbAdapter;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kategoria_historia);
 
-        danePomoc = new DanePomoc(this);
         znajdzWidoki();
-
-
+        danePomoc = new DanePomoc(this);
 
         pytaniaDbAdapter = new PytaniaDbAdapter(getApplicationContext());
         pytaniaDbAdapter.open();
@@ -127,7 +125,7 @@ PytaniaDbAdapter pytaniaDbAdapter;
                 String description = kursor.getString(PytaniaDbAdapter.PYTANIE_KOLUMNA);
                 String completed = kursor.getString(PytaniaDbAdapter.ODPOWIEDZ_KOLUMNA);
 
-                listaPytanTest.add(new PytaniaGra(id, description, completed));
+                listaPytanTest.add(new PytaniaGra(id, description, completed, "a"));
             } while(kursor.moveToNext());
         }
     }

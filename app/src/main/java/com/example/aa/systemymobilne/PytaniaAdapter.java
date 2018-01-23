@@ -31,6 +31,7 @@ public class PytaniaAdapter extends ArrayAdapter <PytaniaGra> {
     static class ViewHolder {
         public TextView tvTodoDescription;
         public TextView tvTodoDescription1;
+        public TextView tvTodoDescription2;
     }
 
     @Override
@@ -43,6 +44,8 @@ public class PytaniaAdapter extends ArrayAdapter <PytaniaGra> {
             viewHolder = new ViewHolder();
             viewHolder.tvTodoDescription = (TextView) rowView.findViewById(R.id.tvTodoDescription);
             viewHolder.tvTodoDescription1 = (TextView) rowView.findViewById(R.id.tvTodoDescription1);
+            viewHolder.tvTodoDescription2 = (TextView) rowView.findViewById(R.id.tvTodoDescription2);
+
 
             rowView.setTag(viewHolder);
         } else {
@@ -51,6 +54,7 @@ public class PytaniaAdapter extends ArrayAdapter <PytaniaGra> {
         PytaniaGra task = tasks.get(position);
         viewHolder.tvTodoDescription.setText(task.getPytanie());
         viewHolder.tvTodoDescription1.setText(task.getOdpowiedz());
+        viewHolder.tvTodoDescription2.setText(task.getKategoria());
 
         return rowView;
     }

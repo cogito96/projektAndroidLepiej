@@ -47,7 +47,7 @@ public class PytaniaDbAdapter {
                     KLUCZ_PYTANIE + " " + PYTANIE_OPCJE + ", " +
                     KLUCZ_ODPOWIEDZ + " " + ODPOWIEDZ_OPCJE + ", " +
                     KLUCZ_KATEGORIA + " " + KATEGORIA_OPCJE +
-                    ");";
+                    " );";
     private static final String DROP_TODO_TABLE =
             "DROP TABLE IF EXISTS " + DB_TODO_TABLE;
 
@@ -99,10 +99,11 @@ public class PytaniaDbAdapter {
         dbHelper.close();
     }
 
-    public long insertTodo(String pytanie, String odpowiedz) {
+    public long insertTodo(String pytanie, String odpowiedz , String  kategoria) {
         ContentValues newTodoValues = new ContentValues();
         newTodoValues.put(KLUCZ_PYTANIE, pytanie);
         newTodoValues.put(KLUCZ_ODPOWIEDZ, odpowiedz);
+        newTodoValues.put(KLUCZ_KATEGORIA, kategoria);
 
         return db.insert(DB_TODO_TABLE, null, newTodoValues);
     }
@@ -111,14 +112,16 @@ public class PytaniaDbAdapter {
         long id = task.getId();
         String description = task.getPytanie();
         String odpowiedz = task.getPytanie();
-        return updateTodo(id, description, odpowiedz);
+        String kategoria = task.getKategoria();
+        return updateTodo(id, description, odpowiedz , kategoria);
     }
 
-    public boolean updateTodo(long id, String description, String odpowiedz) {
+    public boolean updateTodo(long id, String description, String odpowiedz , String kategoria) {
         String where = KLUCZ_ID + "=" + id;
         ContentValues updateTodoValues = new ContentValues();
         updateTodoValues.put(KLUCZ_PYTANIE, description);
         updateTodoValues.put(KLUCZ_ODPOWIEDZ, odpowiedz);
+        updateTodoValues.put(KLUCZ_KATEGORIA, kategoria);
         return db.update(DB_TODO_TABLE, updateTodoValues, where, null) > 0;
     }
 
@@ -128,27 +131,24 @@ public class PytaniaDbAdapter {
     }
 
     public Cursor getAllTodos() {
-        String[] columns = {KLUCZ_ID, KLUCZ_PYTANIE, KLUCZ_ODPOWIEDZ};
+        String[] columns = {KLUCZ_ID, KLUCZ_PYTANIE, KLUCZ_ODPOWIEDZ , KLUCZ_KATEGORIA};
         return db.query(DB_TODO_TABLE, columns, null, null, null, null, null);
     }
 
 
     public PytaniaGra getTodo(long id) {
-        String[] columns = {KLUCZ_ID, KLUCZ_PYTANIE, KLUCZ_ODPOWIEDZ};
+        String[] columns = {KLUCZ_ID, KLUCZ_PYTANIE, KLUCZ_ODPOWIEDZ , KLUCZ_KATEGORIA};
         String where = KLUCZ_ID + "=" + id;
         Cursor cursor = db.query(DB_TODO_TABLE, columns, where, null, null, null, null);
         PytaniaGra task = null;
 
         if (cursor != null && cursor.moveToFirst()) {
             String description = cursor.getString(PYTANIE_KOLUMNA);
-            String completed = cursor.getString(PYTANIE_KOLUMNA);
+            String completed = cursor.getString(ODPOWIEDZ_KOLUMNA);
+            String kategoria = cursor.getString(KATEGORIA_KOLUMNA);
 
-            task = new PytaniaGra(id, description, completed);
+            task = new PytaniaGra(id, description, completed , kategoria);
         }
         return task;
     }
-
-
-
-
 }

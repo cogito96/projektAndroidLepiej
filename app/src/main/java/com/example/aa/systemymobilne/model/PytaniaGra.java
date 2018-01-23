@@ -17,11 +17,11 @@ public class PytaniaGra {
 
 //    private String odpowiedz;
 
-    public PytaniaGra(long id, String pytanie, String  odpowiedz ) {
+    public PytaniaGra(long id, String pytanie, String  odpowiedz , String kategoria) {
         this.id = id;
         this.pytanie = pytanie;
         this.odpowiedz = odpowiedz;
-      //  this.kategoria = kategoria;
+        this.kategoria = kategoria;
     }
 
     public long getId() {

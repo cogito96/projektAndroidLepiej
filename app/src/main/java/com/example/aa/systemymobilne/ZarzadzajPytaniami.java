@@ -58,7 +58,7 @@ public class ZarzadzajPytaniami extends AppCompatActivity {
         btnSave = (Button) findViewById(R.id.btnSave);
         btnCancel = (Button) findViewById(R.id.btnCancel);
         etNewTask = (EditText) findViewById(R.id.etNewTask);
-    //    etNowaOdpowiedz = (EditText) findViewById(R.id.etNewOdpowiedz);
+
         odpowiedzRadioGrup = (RadioGroup) findViewById(R.id.radioGroup);
 
         lvTodos = (ListView) findViewById(R.id.lvTodos);
@@ -100,9 +100,10 @@ public class ZarzadzajPytaniami extends AppCompatActivity {
                 long id = todoCursor.getLong(PytaniaDbAdapter.ID_COLUMN);
                 String description = todoCursor.getString(PytaniaDbAdapter.PYTANIE_KOLUMNA);
                 String completed = todoCursor.getString(PytaniaDbAdapter.ODPOWIEDZ_KOLUMNA);
+                String kategoria = todoCursor.getString(PytaniaDbAdapter.KATEGORIA_KOLUMNA);
 
 
-                tasks.add(new PytaniaGra(id, description, completed));
+                tasks.add(new PytaniaGra(id, description, completed , kategoria));
             } while(todoCursor.moveToNext());
         }
     }
@@ -119,7 +120,7 @@ public class ZarzadzajPytaniami extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 PytaniaGra task = tasks.get(position);
-                todoDbAdapter.updateTodo(task.getId(), task.getPytanie(), task.getOdpowiedz());
+                todoDbAdapter.updateTodo(task.getId(), task.getPytanie(), task.getOdpowiedz() , task.getKategoria());
 
                 updateListViewData();
             }
@@ -202,7 +203,7 @@ public class ZarzadzajPytaniami extends AppCompatActivity {
         if(taskDescription.equals("")){
             etNewTask.setError("Your task description couldn't be empty string.");
         } else {
-            todoDbAdapter.insertTodo(taskDescription , taskOdpowiedz);
+            todoDbAdapter.insertTodo(taskDescription , taskOdpowiedz , "a");
 
             etNewTask.setText("");
             odpowiedzRadioButton.setChecked(false);
