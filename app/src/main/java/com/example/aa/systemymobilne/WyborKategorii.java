@@ -11,7 +11,7 @@ public class WyborKategorii extends AppCompatActivity {
 
     RelativeLayout kategoriaHistoria, kategoriaBologia , kategoriaInformatyka , kategoriaLosowo ;
 
-    TextView imie , najlepszyHistoria , najlepszyBiologia , najlepszyInformatyka , najlepszyLosowy;
+    TextView powrotDoMenuGlownego , najlepszyHistoria , najlepszyBiologia , najlepszyInformatyka , najlepszyLosowy;
 
     DanePomoc danePomoc;
 
@@ -33,6 +33,8 @@ public class WyborKategorii extends AppCompatActivity {
         kategoriaInformatyka = (RelativeLayout) findViewById(R.id.activity_wybor_kategorii_Informatyka);
         kategoriaLosowo = (RelativeLayout) findViewById(R.id.activity_wybor_kategorii_Losowo);
 
+        powrotDoMenuGlownego = (TextView) findViewById(R.id.activity_wybor_kategorii_powrotDoMenuGlownego);
+
     }
 
     public void ustawNajlepszeWyniki()
@@ -41,13 +43,13 @@ public class WyborKategorii extends AppCompatActivity {
         najlepszyHistoria.setText("" + danePomoc.zwrocIloscPunktow("NAJLEPSZY_WYNIK_HISTORIA",0));
 
         najlepszyBiologia = (TextView) findViewById(R.id.activity_wybor_kategorii_BiologiaNajlepszyWynik);
-        najlepszyBiologia.setText("" + danePomoc.zwrocIloscPunktow("NAJLEPSZY_WYNIK_HISTORIA",0));
+        najlepszyBiologia.setText("" + danePomoc.zwrocIloscPunktow("NAJLEPSZY_WYNIK_BIOLOGIA",0));
 
         najlepszyInformatyka = (TextView) findViewById(R.id.activity_wybor_kategorii_InformatykaNajlepszyWynik);
-        najlepszyInformatyka.setText("" + danePomoc.zwrocIloscPunktow("NAJLEPSZY_WYNIK_HISTORIA",0));
+        najlepszyInformatyka.setText("" + danePomoc.zwrocIloscPunktow("NAJLEPSZY_WYNIK_INFORMATYKA",0));
 
         najlepszyLosowy = (TextView) findViewById(R.id.activity_wybor_kategorii_LosowoNajlepszyWynik);
-        najlepszyLosowy.setText("" + danePomoc.zwrocIloscPunktow("NAJLEPSZY_WYNIK_HISTORIA",0));
+        najlepszyLosowy.setText("" + danePomoc.zwrocIloscPunktow("NAJLEPSZY_WYNIK_LOSOWEPYTANIA",0));
 
     }
 
@@ -77,6 +79,13 @@ public class WyborKategorii extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(WyborKategorii.this, KategoriaLosowo.class));
+            }
+        });
+
+        powrotDoMenuGlownego.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(WyborKategorii.this, MainActivity.class));
             }
         });
     }

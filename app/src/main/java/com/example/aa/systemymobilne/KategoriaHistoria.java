@@ -124,8 +124,12 @@ PytaniaDbAdapter pytaniaDbAdapter;
                 long id = kursor.getLong(PytaniaDbAdapter.ID_COLUMN);
                 String description = kursor.getString(PytaniaDbAdapter.PYTANIE_KOLUMNA);
                 String completed = kursor.getString(PytaniaDbAdapter.ODPOWIEDZ_KOLUMNA);
+                String kategoria = kursor.getString(PytaniaDbAdapter.KATEGORIA_KOLUMNA);
 
-                listaPytanTest.add(new PytaniaGra(id, description, completed, "a"));
+                if(kategoria.equals("HISTORIA"));
+                {
+                    listaPytanTest.add(new PytaniaGra(id, description, completed, kategoria));
+                }
             } while(kursor.moveToNext());
         }
     }

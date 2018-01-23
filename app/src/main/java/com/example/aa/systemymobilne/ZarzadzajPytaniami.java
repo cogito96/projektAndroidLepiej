@@ -36,7 +36,6 @@ public class ZarzadzajPytaniami extends AppCompatActivity {
     private EditText etNewTask , etNowaKategoria;
     private ListView lvTodos;
 
-
     private LinearLayout llControlButtons;
     private LinearLayout llNewTaskButtons;
 

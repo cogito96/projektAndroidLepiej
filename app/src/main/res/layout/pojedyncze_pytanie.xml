@@ -16,11 +16,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tvTodoDescription1"
+        android:textSize="15dp"
+        android:layout_gravity="right"
         android:layout_marginLeft="20dp" android:text="test" android:textAppearance="?android:attr/textAppearanceLarge"></TextView>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tvTodoDescription2"
+        android:textSize="15dp"
+        android:layout_gravity="right"
         android:layout_marginLeft="20dp" android:text="test" android:textAppearance="?android:attr/textAppearanceLarge"></TextView>
 </LinearLayout>

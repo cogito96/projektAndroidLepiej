@@ -22,7 +22,11 @@
         <activity android:name=".KategoriaBiologia" />
         <activity android:name=".KategoriaInformatyka" />
         <activity android:name=".KategoriaLosowo" />
-        <activity android:name=".KategoriaHistoriaRezultat"></activity>
+        <activity android:name=".KategoriaHistoriaRezultat" />
+        <activity android:name=".model.KategoriaBiologiaRezultat" />
+        <activity android:name=".KategoriaBiologiaRezultat" />
+        <activity android:name=".KategoriaInformatykaRezultat" />
+        <activity android:name=".KategoriaLosowoRezultat"></activity>
     </application>
 
 </manifest>
