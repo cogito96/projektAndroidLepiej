@@ -122,8 +122,7 @@ public class ZarzadzajPytaniami extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 PytaniaGra task = tasks.get(position);
-                todoDbAdapter.updateTodo(task.getId(), task.getPytanie(), task.getOdpowiedz() , task.getKategoria());
-
+                todoDbAdapter.deleteTodo(task.getId());
                 updateListViewData();
             }
         });
@@ -206,8 +205,8 @@ public class ZarzadzajPytaniami extends AppCompatActivity {
         String taskKategoria = kategoriaRadioButton.getText().toString();
 
 
-        if(taskDescription.equals("")){
-            etNewTask.setError("Your task description couldn't be empty string.");
+        if(taskDescription.equals("") || odpowiedzRadioButton.isChecked()==false){
+            etNewTask.setError("Te pole nie może być puste");
         } else {
             todoDbAdapter.insertTodo(taskDescription , taskOdpowiedz , taskKategoria);
 
@@ -247,14 +246,12 @@ public class ZarzadzajPytaniami extends AppCompatActivity {
     {
         int radioButtonID = odpowiedzRadioGrup.getCheckedRadioButtonId();
         odpowiedzRadioButton = (RadioButton) findViewById(radioButtonID);
-        Toast.makeText(getBaseContext(), odpowiedzRadioButton.getText().toString() , Toast.LENGTH_SHORT).show();
     }
 
     public void przycisnietyRadioGroupKategoria(View v)
     {
         int radioButtonID = kategoriaRadioGrup.getCheckedRadioButtonId();
         kategoriaRadioButton = (RadioButton) findViewById(radioButtonID);
-        Toast.makeText(getBaseContext(), kategoriaRadioButton.getText().toString() , Toast.LENGTH_SHORT).show();
     }
     //    private void clearCompletedTasks(){
 //        if(todoCursor != null && todoCursor.moveToFirst()) {

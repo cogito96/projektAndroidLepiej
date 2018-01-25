@@ -31,30 +31,6 @@ public class DanePomoc {
         return punkty;
     }
 
-    public static void saveDataString(String s, String i){
-        SharedPreferences preferences = context.getSharedPreferences("PREFS", 0);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putString(s, i);
-        editor.commit();
-    }
 
-    public static String receiveDataString(String s, String i){
-        SharedPreferences preferences = context.getSharedPreferences("PREFS", 0);
-        String punkty = preferences.getString(s, i);
-        return punkty;
-    }
-
-    public static void saveDataBoolean(String s, boolean i){
-        SharedPreferences preferences = context.getSharedPreferences("PREFS", 0);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putBoolean(s, i);
-        editor.commit();
-    }
-
-    public static boolean receiveDataBoolean(String s, boolean i){
-        SharedPreferences preferences = context.getSharedPreferences("PREFS", 0);
-        boolean punkty = preferences.getBoolean(s, i);
-        return punkty;
-    }
 
 }

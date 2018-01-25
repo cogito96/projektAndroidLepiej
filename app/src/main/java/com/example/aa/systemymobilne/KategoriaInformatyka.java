@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.aa.systemymobilne.database.PytaniaDbAdapter;
 import com.example.aa.systemymobilne.model.PytaniaGra;
@@ -43,6 +44,11 @@ public class KategoriaInformatyka extends AppCompatActivity {
         kursor = getAllEntriesFromDb();
         updateTaskList();
 
+        if(listaPytanTest.isEmpty())
+        {
+            Toast.makeText(getBaseContext(), "NIE MA PYTAN Z TEJ KATEGORII" , Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         n = r.nextInt(listaPytanTest.size());
 

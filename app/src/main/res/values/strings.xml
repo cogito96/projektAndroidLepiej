@@ -20,4 +20,6 @@
     <string name="kategoriaHistoria">HISTORIA</string>
     <string name="kategoriaInformatyka">INFORMATYKA</string>
 
+    <string name="brakKategorii">Powrot do wyboru kategorii</string>
+
 </resources>

@@ -43,12 +43,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        wyjdz.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                System.exit(0);
-//            }
-//        });
+        wyjdz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.exit(0);
+            }
+        });
     }
 
 

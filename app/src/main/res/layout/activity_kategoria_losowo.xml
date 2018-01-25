@@ -51,7 +51,7 @@
         android:textColor="#fff"
         android:id="@+id/gra_pytanie"
         android:textSize="20sp"
-        android:text="questions"/>
+        android:text="NIE MA PYTAN Z TEJ KATEGORII"/>
 
 
     <LinearLayout

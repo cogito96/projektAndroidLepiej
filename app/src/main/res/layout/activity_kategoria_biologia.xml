@@ -51,8 +51,7 @@
         android:textColor="#fff"
         android:id="@+id/gra_pytanie"
         android:textSize="20sp"
-        android:text="questions"/>
-
+        android:text="NIE MA PYTAN Z TEJ KATEGORII"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -78,7 +77,6 @@
             android:background="#d20505"
             android:layout_weight="1"
             android:layout_height="match_parent" />
-
 
     </LinearLayout>
 
